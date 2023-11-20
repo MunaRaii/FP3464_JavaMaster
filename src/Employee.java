@@ -37,9 +37,7 @@ class Employee {
         return this.occupationRate;
     }
 
-    public void setOccupationRate(int occupationRate) {
-        this.occupationRate = Math.max(10, Math.min(occupationRate, 100));
-    }
+
 }
 
 class Manager extends Employee {
@@ -48,8 +46,8 @@ class Manager extends Employee {
     private int clientsBrought;
 
     // Constructor for initializing Manager
-    public Manager(String name, int birthYear, double monthlyIncome, int travelledDays, int clientsBrought) {
-        super(name, birthYear, monthlyIncome, 100);
+    public Manager(String name, int birthYear, double monthlyIncome, int occupationRate, int travelledDays, int clientsBrought) {
+        super(name, birthYear, monthlyIncome,occupationRate);
         this.travelledDays = travelledDays;
         this.clientsBrought = clientsBrought;
     }
@@ -77,12 +75,12 @@ class Tester extends Employee {
     private int bugsSolved;
 
     // Constructor for initializing Tester
-    public Tester(String name, int birthYear, double monthlyIncome, int bugsSolved) {
-        super(name, birthYear, monthlyIncome, 100);
+    public Tester(String name, int birthYear, double monthlyIncome, int occupationRate, int bugsSolved) {
+        super(name, birthYear, monthlyIncome, occupationRate);
         this.bugsSolved = bugsSolved;
     }
 
-    // Getters and setters for Tester Class  attribute
+    // Getters and setters for Tester-specific attribute
     public int getBugsSolved() {
         return this.bugsSolved;
     }
@@ -97,8 +95,8 @@ class Programmer extends Employee {
     private int projectsCompleted;
 
     // Constructor for initializing Programmer
-    public Programmer(String name, int birthYear, double monthlyIncome, int projectsCompleted) {
-        super(name, birthYear, monthlyIncome, 100);
+    public Programmer(String name, int birthYear, double monthlyIncome, int occupationRate, int projectsCompleted) {
+        super(name, birthYear, monthlyIncome, occupationRate);
         this.projectsCompleted = projectsCompleted;
     }
 
