@@ -1,5 +1,5 @@
 class Employee {
-    // Private attributes for encapsulation
+    // Private common attributes for parent and child classes attributes for encapsulation
     private String name;
     private int birthYear;
     private double monthlyIncome;
@@ -10,13 +10,13 @@ class Employee {
         this.name = name;
         this.birthYear = birthYear;
         this.monthlyIncome = monthlyIncome;
-        this.occupationRate = Math.max(10, Math.min(occupationRate, 100));
+        this.occupationRate = occupationRate;
         System.out.println("We have a new employee: " + this.name);
     }
 
     // Getter for calculating age
     public int getAge() {
-        // Calculate age based on the birth year and current year (assuming current year is 2023)
+        // Calculate age based on the birth year and current year
         return 2023 - this.birthYear;
     }
 
@@ -25,19 +25,33 @@ class Employee {
         return this.name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public int getBirthYear() {
         return this.birthYear;
+    }
+
+    public void setBirthYear(int birthYear) {
+        this.birthYear = birthYear;
     }
 
     public double getMonthlyIncome() {
         return this.monthlyIncome;
     }
 
+    public void setMonthlyIncome(double monthlyIncome) {
+        this.monthlyIncome = monthlyIncome;
+    }
+
     public int getOccupationRate() {
         return this.occupationRate;
     }
 
-
+    public void setOccupationRate(int occupationRate) {
+        this.occupationRate = occupationRate;
+    }
 }
 
 class Manager extends Employee {
