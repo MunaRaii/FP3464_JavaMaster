@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="697287ae-2b37-4eea-b587-b5ae0d76a4b7" name="Changes" comment="comment added">
+    <list default="true" id="697287ae-2b37-4eea-b587-b5ae0d76a4b7" name="Changes" comment="part 1 final commit">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Employee.java" afterDir="false" />
     </list>
@@ -62,7 +63,8 @@
       <updated>1700353427759</updated>
       <workItem from="1700353428939" duration="2609000" />
       <workItem from="1700451967498" duration="6409000" />
-      <workItem from="1700520573917" duration="832000" />
+      <workItem from="1700520573917" duration="1774000" />
+      <workItem from="1700713218387" duration="611000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -160,7 +162,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700459061016</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="getter and setter method updated">
+      <option name="closed" value="true" />
+      <created>1700524089343</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1700524089343</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -199,7 +209,9 @@
     <MESSAGE value="main method initialized with attribute of each class" />
     <MESSAGE value="Displayed all the information" />
     <MESSAGE value="comment added" />
-    <option name="LAST_COMMIT_MESSAGE" value="comment added" />
+    <MESSAGE value="getter and setter method updated" />
+    <MESSAGE value="part 1 final commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="part 1 final commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -211,7 +223,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-field">
           <url>file://$PROJECT_DIR$/src/Employee.java</url>
-          <line>2</line>
+          <line>4</line>
           <properties field="name" class="Employee" />
           <option name="timeStamp" value="2" />
         </line-breakpoint>

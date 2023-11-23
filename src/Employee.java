@@ -1,3 +1,5 @@
+
+
 class Employee {
     // Private common attributes for parent and child classes attributes for encapsulation
     private String name;
@@ -31,17 +33,11 @@ class Employee {
         return this.monthlyIncome;
     }
 
-    public void setMonthlyIncome(double monthlyIncome) {
-        this.monthlyIncome = monthlyIncome;
-    }
 
     public int getOccupationRate() {
         return this.occupationRate;
     }
 
-    public void setOccupationRate(int occupationRate) {
-        this.occupationRate = occupationRate;
-    }
 }
 
 class Manager extends Employee {
@@ -61,17 +57,13 @@ class Manager extends Employee {
         return this.travelledDays;
     }
 
-    public void setTravelledDays(int travelledDays) {
-        this.travelledDays = travelledDays;
-    }
 
     public int getClientsBrought() {
         return this.clientsBrought;
     }
 
-    public void setClientsBrought(int clientsBrought) {
-        this.clientsBrought = clientsBrought;
-    }
+
+
 }
 
 class Tester extends Employee {
@@ -84,14 +76,11 @@ class Tester extends Employee {
         this.bugsSolved = bugsSolved;
     }
 
-    // Getters and setters for Tester-specific attribute
+    // Getters for Tester-specific attribute
     public int getBugsSolved() {
         return this.bugsSolved;
     }
 
-    public void setBugsSolved(int bugsSolved) {
-        this.bugsSolved = bugsSolved;
-    }
 }
 
 class Programmer extends Employee {
@@ -104,14 +93,11 @@ class Programmer extends Employee {
         this.projectsCompleted = projectsCompleted;
     }
 
-    // Getters and setters for Programmer-specific attribute
+    // Getter for Programmer-specific attribute
     public int getProjectsCompleted() {
         return this.projectsCompleted;
     }
 
-    public void setProjectsCompleted(int projectsCompleted) {
-        this.projectsCompleted = projectsCompleted;
-    }
 }
 
 
