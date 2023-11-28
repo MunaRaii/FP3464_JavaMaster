@@ -2,9 +2,9 @@
 
 class Employee {
     // Private common attributes for parent and child classes attributes for encapsulation
-    private String name;
-    private int birthYear;
-    private double monthlyIncome;
+    private final String name;
+    private final int birthYear;
+    private final double monthlyIncome;
     private int occupationRate;
 
     // Constructor for initializing Employee
@@ -14,6 +14,24 @@ class Employee {
         this.monthlyIncome = monthlyIncome;
         this.occupationRate = occupationRate;
         System.out.println("We have a new employee: " + this.name);
+
+
+    }
+
+
+    // New method to calculate effective occupation rate
+    public void calculateEffectiveOccupationRate(int daysWorked) {
+        // Calculate occupation rate based on the number of days worked
+        double calculatedOccupationRate = (daysWorked / 30.0) * 100.0;
+
+        // Apply the rules for effective occupation rate
+        if (calculatedOccupationRate < 10.0) {
+            this.occupationRate = 10;
+        } else if (calculatedOccupationRate > 100.0) {
+            this.occupationRate = 100;
+        } else {
+            this.occupationRate = (int) Math.round(calculatedOccupationRate);
+        }
     }
 
     // Getter for calculating age
@@ -34,16 +52,25 @@ class Employee {
     }
 
 
+
+
     public int getOccupationRate() {
         return this.occupationRate;
+    }
+
+    public String toString() {
+        return "Name: " + this.getName() + " || " +
+                "Age: " + this.getAge() + " || " +
+                "MonthlyIncome: " + this.getMonthlyIncome() + " || " +
+                "Occupation Rate: " + this.getOccupationRate();
     }
 
 }
 
 class Manager extends Employee {
     // Additional attributes for Manager
-    private int travelledDays;
-    private int clientsBrought;
+    private final int travelledDays;
+    private final int clientsBrought;
 
     // Constructor for initializing Manager
     public Manager(String name, int birthYear, double monthlyIncome, int occupationRate, int travelledDays, int clientsBrought) {
@@ -62,13 +89,20 @@ class Manager extends Employee {
         return this.clientsBrought;
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + " || " +
+                "Travelled Days: " + this.getTravelledDays() + " || " +
+                "Clients Brought: " + this.getClientsBrought();
+    }
+
 
 
 }
 
 class Tester extends Employee {
     // Additional attribute for Tester
-    private int bugsSolved;
+    private final int bugsSolved;
 
     // Constructor for initializing Tester
     public Tester(String name, int birthYear, double monthlyIncome, int occupationRate, int bugsSolved) {
@@ -81,11 +115,19 @@ class Tester extends Employee {
         return this.bugsSolved;
     }
 
+    @Override
+    public final String toString() {
+        return super.toString() + " || " +
+                "Bugs Solved: " + this.getBugsSolved();
+    }
+
+
+
 }
 
 class Programmer extends Employee {
     // Additional attribute for Programmer
-    private int projectsCompleted;
+    private final int projectsCompleted;
 
     // Constructor for initializing Programmer
     public Programmer(String name, int birthYear, double monthlyIncome, int occupationRate, int projectsCompleted) {
@@ -98,6 +140,10 @@ class Programmer extends Employee {
         return this.projectsCompleted;
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + " || " +
+                "Projects Completed: " + this.getProjectsCompleted();
+    }
+
 }
-
-
