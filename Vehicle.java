@@ -26,5 +26,32 @@ public class Vehicle {
     public String getCategory(){
         return this.category;
     }
+}
+
+class Car extends Vehicle{
+    private final String gear;
+    private final String type;
+    Car(String make, String plate, String color, String category, String gear, String type){
+        super(make, plate, color, category);
+        this.gear = gear;
+        this.type = type;
+    }
+
+    public String getGear(){
+        return this.gear;
+    }
+
+    public String getType(){
+        return this.type;
+    }
+
+    public String toString(){
+        return "Make: " + super.getMake() + "||" +
+                "Plate: " + super.getPlate() + " || " +
+                "Color: " + super.getColor() + " || " +
+                "Category: " + super.getCategory() + " || " +
+                "Gear: " + this.getGear() + " || " +
+                "Type: " + this.getType();
+    }
 
 }
