@@ -53,5 +53,25 @@ class Car extends Vehicle{
                 "Gear: " + this.getGear() + " || " +
                 "Type: " + this.getType();
     }
+}
 
+class Motorcycle extends Vehicle{
+    private final boolean hasSideCar;
+
+    Motorcycle(String make, String plate, String color, String category, boolean hasSideCar){
+        super(make, plate, color, category);
+        this.hasSideCar = hasSideCar;
+    }
+
+    public boolean hasSideCar(){
+        return  this.hasSideCar;
+    }
+
+    public String toString(){
+        return "Make: " + super.getMake() +
+                "Plate: " + super.getPlate() +
+                "Color: " + super.getColor() +
+                "Category: " + super.getCategory() +
+                "Side Car: " + this.hasSideCar;
+    }
 }
