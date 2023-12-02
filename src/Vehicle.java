@@ -46,12 +46,12 @@ class Car extends Vehicle{
     }
 
     public String toString(){
-        return "Make: " + super.getMake() + "," +
-                "Plate: " + super.getPlate() + " , " +
-                "Color: " + super.getColor() + " , " +
-                "Category: " + super.getCategory() + " , " +
-                "Gear: " + this.getGear() + " , " +
-                "Type: " + this.getType();
+        return "\t\t - make: " + super.getMake() + "\n" +
+                "\t\t - plate: " + super.getPlate() + " \n " +
+                "\t\t - color: " + super.getColor() + " \n " +
+                "\t\t - category: " + super.getCategory() + " \n " +
+                "\t\t - gear: " + this.getGear() + " \n " +
+                "\t\t - type: " + this.getType();
     }
 }
 

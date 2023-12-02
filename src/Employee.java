@@ -15,9 +15,8 @@ class Employee {
         this.monthlyIncome = monthlyIncome;
         this.occupationRate = occupationRate;
         this.vehicle = vehicle;
-        System.out.println("We have a new employee: " + this.name);
+//        System.out.println("We have a new employee: " + this.name );
     }
-
 
     // New method to calculate effective occupation rate
     public void calculateEffectiveOccupationRate(int daysWorked) {
@@ -60,10 +59,11 @@ class Employee {
     }
 
     public String toString() {
-        return "Name: " + this.getName() + " || " +
-                "Age: " + this.getAge() + " || " +
-                "MonthlyIncome: " + this.getMonthlyIncome() + " || " +
-                "Occupation Rate: " + this.getOccupationRate();
+        return "Name: " + this.getName() + " \n " +
+                "Age: " + this.getAge() + " \n " +
+                "Employee has a " + "\n" + this.getVehicle();
+//                "MonthlyIncome: " + this.getMonthlyIncome() + " \n " +
+//                "Occupation Rate: " + this.getOccupationRate();
     }
 
     public double annualIncome(){
@@ -78,8 +78,9 @@ class Manager extends Employee {
     private final int clientsBrought;
 
     // Constructor for initializing Manager
-    public Manager(String name, int birthYear, double monthlyIncome, int occupationRate, int travelledDays, int clientsBrought) {
-        super(name, birthYear, monthlyIncome,occupationRate);
+    public Manager(String name, int birthYear, double monthlyIncome, int occupationRate, int travelledDays, int clientsBrought, Car car
+    ) {
+        super(name, birthYear, monthlyIncome, occupationRate, car);
         this.travelledDays = travelledDays;
         this.clientsBrought = clientsBrought;
     }
@@ -95,18 +96,18 @@ class Manager extends Employee {
 
     @Override
     public String toString() {
-        return super.toString() + " || " +
-                "Travelled Days: " + this.getTravelledDays() + " || " +
-                "Clients Brought: " + this.getClientsBrought();
+        return super.toString() + " \n " +
+                "Travelled Days: " + this.getTravelledDays() + " \n " +
+                "Clients Brought: " + this.getClientsBrought() + " \n " +
                 "Vehicle: " + this.getVehicle();
     }
 
     // Bonus calculation for manager
     @Override
-    public double annual Income(){
-        private final GAIN_FACTOR_CLIENT = 500;
-        private final GAIN_FACTOR_TRAVEL = 100;
-        double bonus = clientsBrought * GAIN_FACTOR_CLIENT + travelledDays * GAIN_FACTOR_TRAVEL;
+    public double annualIncome(){
+        final int GAIN_FACTOR_CLIENT = 500;
+        final int GAIN_FACTOR_TRAVEL = 100;
+        double bonus = (clientsBrought * GAIN_FACTOR_CLIENT) + (travelledDays * GAIN_FACTOR_TRAVEL);
         return (super.annualIncome() + bonus);
     }
 
@@ -137,8 +138,8 @@ class Tester extends Employee {
     // Bonus Calculation for Tester
     @Override
     public double annualIncome(){
-        private final GAIN_FACTOR_ERROR = 10;
-        double bonus = bugsSolved * GAIN_FACTOR_ERROR;
+        final int GAIN_FACTOR_ERROR = 10;
+        double bonus = (bugsSolved * GAIN_FACTOR_ERROR);
         return (super.annualIncome() + bonus);
     }
 
@@ -169,8 +170,8 @@ class Programmer extends Employee {
     // Bonus Calculation for programmer
     @Override
     public double annualIncome(){
-        private final GAIN_FACTOR_PROJECTS = 200;
-        double bonus = projectsCompleted * GAIN_FACTOR_PROJECTS;
+        final int GAIN_FACTOR_PROJECTS = 200;
+        double bonus = (projectsCompleted * GAIN_FACTOR_PROJECTS);
         return (super.annualIncome() + bonus);
     }
 
