@@ -107,7 +107,7 @@ class Manager extends Employee {
         private final GAIN_FACTOR_CLIENT = 500;
         private final GAIN_FACTOR_TRAVEL = 100;
         double bonus = clientsBrought * GAIN_FACTOR_CLIENT + travelledDays * GAIN_FACTOR_TRAVEL;
-        return super.annualIncome() + bonus;
+        return (super.annualIncome() + bonus);
     }
 
 }
@@ -117,8 +117,8 @@ class Tester extends Employee {
     private final int bugsSolved;
 
     // Constructor for initializing Tester
-    public Tester(String name, int birthYear, double monthlyIncome, int occupationRate, int bugsSolved) {
-        super(name, birthYear, monthlyIncome, occupationRate);
+    public Tester(String name, int birthYear, double monthlyIncome, int occupationRate, int bugsSolved, Motorcycle motorcycle) {
+        super(name, birthYear, monthlyIncome, occupationRate, motorcycle);
         this.bugsSolved = bugsSolved;
     }
 
@@ -130,10 +130,17 @@ class Tester extends Employee {
     @Override
     public final String toString() {
         return super.toString() + " || " +
-                "Bugs Solved: " + this.getBugsSolved();
+                "Bugs Solved: " + this.getBugsSolved() +
+                "Vehicle: " + this.getVehicle();
     }
 
-
+    // Bonus Calculation for Tester
+    @Override
+    public double annualIncome(){
+        private final GAIN_FACTOR_ERROR = 10;
+        double bonus = bugsSolved * GAIN_FACTOR_ERROR;
+        return (super.annualIncome() + bonus);
+    }
 
 }
 
