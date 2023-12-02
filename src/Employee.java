@@ -149,8 +149,8 @@ class Programmer extends Employee {
     private final int projectsCompleted;
 
     // Constructor for initializing Programmer
-    public Programmer(String name, int birthYear, double monthlyIncome, int occupationRate, int projectsCompleted) {
-        super(name, birthYear, monthlyIncome, occupationRate);
+    public Programmer(String name, int birthYear, double monthlyIncome, int occupationRate, int projectsCompleted, Car car) {
+        super(name, birthYear, monthlyIncome, occupationRate, car);
         this.projectsCompleted = projectsCompleted;
     }
 
@@ -162,7 +162,16 @@ class Programmer extends Employee {
     @Override
     public String toString() {
         return super.toString() + " || " +
-                "Projects Completed: " + this.getProjectsCompleted();
+                "Projects Completed: " + this.getProjectsCompleted() +
+                "Vehicle: " + this.getVehicle();
+    }
+
+    // Bonus Calculation for programmer
+    @Override
+    public double annualIncome(){
+        private final GAIN_FACTOR_PROJECTS = 200;
+        double bonus = projectsCompleted * GAIN_FACTOR_PROJECTS;
+        return (super.annualIncome() + bonus);
     }
 
 }
