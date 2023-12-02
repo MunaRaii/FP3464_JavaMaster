@@ -1,24 +1,23 @@
 
-
 class Employee {
-    // Private common attributes for parent and child classes attributes for encapsulation
     private final String name;
     private final int birthYear;
     private final double monthlyIncome;
-    private int occupationRate;
+    private  int occupationRate;
+
+    protected final String employeeType;
     private final Vehicle vehicle;
 
-    // Constructor for initializing Employee
-    public Employee(String name, int birthYear, double monthlyIncome, int occupationRate, Vehicle vehicle) {
+    public Employee(String name, int birthYear, double monthlyIncome, int occupationRate, String employeeType, Vehicle vehicle) {
         this.name = name;
         this.birthYear = birthYear;
         this.monthlyIncome = monthlyIncome;
         this.occupationRate = occupationRate;
+        this.employeeType = employeeType;
         this.vehicle = vehicle;
-//        System.out.println("We have a new employee: " + this.name );
+        System.out.println("We have a new employee: " + this.name + ", a " + this.employeeType);
     }
 
-    // New method to calculate effective occupation rate
     public void calculateEffectiveOccupationRate(int daysWorked) {
         // Calculate occupation rate based on the number of days worked
         double calculatedOccupationRate = (daysWorked / 30.0) * 100.0;
@@ -33,18 +32,13 @@ class Employee {
         }
     }
 
-    // Getter for calculating age
     public int getAge() {
-        // Calculate age based on the birth year and current year
         return 2023 - this.birthYear;
     }
 
-    // Getters and setters for private attributes
     public String getName() {
         return this.name;
     }
-
-
 
     public double getMonthlyIncome() {
         return this.monthlyIncome;
@@ -54,38 +48,31 @@ class Employee {
         return this.occupationRate;
     }
 
-    public Vehicle getVehicle(){
+    public Vehicle getVehicle() {
         return this.vehicle;
     }
 
     public String toString() {
-        return "Name: " + this.getName() + " \n " +
-                "Age: " + this.getAge() + " \n " +
-                "Employee has a " + "\n" + this.getVehicle();
-//                "MonthlyIncome: " + this.getMonthlyIncome() + " \n " +
-//                "Occupation Rate: " + this.getOccupationRate();
+        return "Name: " + this.getName() + ", a " + this.employeeType + "\n" +
+                "Age: " + this.getAge() + " \n ";
+
     }
 
-    public double annualIncome(){
-        return (12 * this.monthlyIncome * this.occupationRate);
+    public double annualIncome() {
+        return 12 * this.monthlyIncome * this.occupationRate;
     }
-
 }
 
 class Manager extends Employee {
-    // Additional attributes for Manager
     private final int travelledDays;
     private final int clientsBrought;
 
-    // Constructor for initializing Manager
-    public Manager(String name, int birthYear, double monthlyIncome, int occupationRate, int travelledDays, int clientsBrought, Car car
-    ) {
-        super(name, birthYear, monthlyIncome, occupationRate, car);
+    public Manager(String name, int birthYear, double monthlyIncome, int occupationRate, int travelledDays, int clientsBrought, Car car) {
+        super(name, birthYear, monthlyIncome, occupationRate,"manager", car);
         this.travelledDays = travelledDays;
         this.clientsBrought = clientsBrought;
     }
 
-    // Getters and setters for Manager-specific attributes
     public int getTravelledDays() {
         return this.travelledDays;
     }
@@ -97,82 +84,73 @@ class Manager extends Employee {
     @Override
     public String toString() {
         return super.toString() + " \n " +
-                "Travelled Days: " + this.getTravelledDays() + " \n " +
-                "Clients Brought: " + this.getClientsBrought() + " \n " +
-                "Vehicle: " + this.getVehicle();
+                "Employee has a " + this.getVehicle().vehicleType +"\n"+ this.getVehicle() + " \n " +
+                this.getName() + " has an Occupation rate: " + this.getOccupationRate()+ " %" + " HE/SHE travelled "+ this.getTravelledDays() +" and " +"has brought " + this.getClientsBrought() + " new clients." + "\n" + "His/her estimated annual income is :"
+                + annualIncome() + "\n" + "------------------" + "\n" + "-----------------------";
+
     }
 
-    // Bonus calculation for manager
     @Override
-    public double annualIncome(){
-        final int GAIN_FACTOR_CLIENT = 500;
-        final int GAIN_FACTOR_TRAVEL = 100;
-        double bonus = (clientsBrought * GAIN_FACTOR_CLIENT) + (travelledDays * GAIN_FACTOR_TRAVEL);
-        return (super.annualIncome() + bonus);
+    public double annualIncome() {
+        // Add bonus for manager
+        double bonus = clientsBrought * 500 + travelledDays * 100;
+        return super.annualIncome() + bonus;
     }
-
 }
 
 class Tester extends Employee {
-    // Additional attribute for Tester
     private final int bugsSolved;
 
-    // Constructor for initializing Tester
     public Tester(String name, int birthYear, double monthlyIncome, int occupationRate, int bugsSolved, Motorcycle motorcycle) {
-        super(name, birthYear, monthlyIncome, occupationRate, motorcycle);
+        super(name, birthYear, monthlyIncome, occupationRate,"tester", motorcycle);
         this.bugsSolved = bugsSolved;
     }
 
-    // Getters for Tester-specific attribute
-    public int getBugsSolved() {
+    public final int getBugsSolved() {
         return this.bugsSolved;
     }
 
     @Override
-    public final String toString() {
-        return super.toString() + " || " +
-                "Bugs Solved: " + this.getBugsSolved() +
-                "Vehicle: " + this.getVehicle();
+    public String toString() {
+        return super.toString() + " \n " +
+                "Employee has a " + this.getVehicle().vehicleType +"\n"+ this.getVehicle() + " \n " +
+                this.getName() + " has an Occupation rate: " + this.getOccupationRate()+ " %" +" and corrected " + this.getBugsSolved() + " \n " + "His/her estimated annual income is :"
+                + annualIncome() + "\n" + "------------------" + "\n" + "-----------------------";
+
     }
 
-    // Bonus Calculation for Tester
     @Override
-    public double annualIncome(){
-        final int GAIN_FACTOR_ERROR = 10;
-        double bonus = (bugsSolved * GAIN_FACTOR_ERROR);
-        return (super.annualIncome() + bonus);
+    public double annualIncome() {
+        // Add bonus for tester
+        double bonus = bugsSolved * 10;
+        return super.annualIncome() + bonus;
     }
-
 }
 
 class Programmer extends Employee {
-    // Additional attribute for Programmer
     private final int projectsCompleted;
 
-    // Constructor for initializing Programmer
     public Programmer(String name, int birthYear, double monthlyIncome, int occupationRate, int projectsCompleted, Car car) {
-        super(name, birthYear, monthlyIncome, occupationRate, car);
+        super(name, birthYear, monthlyIncome, occupationRate,"programmer", car);
         this.projectsCompleted = projectsCompleted;
     }
 
-    // Getter for Programmer-specific attribute
     public int getProjectsCompleted() {
         return this.projectsCompleted;
     }
 
     @Override
     public String toString() {
-        return super.toString() + " || " +
-                "Projects Completed: " + this.getProjectsCompleted() +
-                "Vehicle: " + this.getVehicle();
+        return super.toString() + " \n " +
+                "Employee has a " + this.getVehicle().vehicleType +"\n"+ this.getVehicle() + " \n " +
+                this.getName() + " has an Occupation rate: " + this.getOccupationRate()+ " %" +" and completed project " + this.getProjectsCompleted() + " \n " + "His/her estimated annual income is :"
+                + annualIncome() + "\n" + "------------------" + "\n" + "-----------------------";
     }
 
-    // Bonus Calculation for programmer
     @Override
-    public double annualIncome(){
-        final int GAIN_FACTOR_PROJECTS = 200;
-        double bonus = (projectsCompleted * GAIN_FACTOR_PROJECTS);
-        return (super.annualIncome() + bonus);
+    public double annualIncome() {
+        // Add bonus for programmer
+        double bonus = projectsCompleted * 200;
+        return super.annualIncome() + bonus;
     }
-
 }
