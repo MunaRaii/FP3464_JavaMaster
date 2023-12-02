@@ -54,7 +54,7 @@ class Employee {
 
     public String toString() {
         return "Name: " + this.getName() + ", a " + this.employeeType + "\n" +
-                "Age: " + this.getAge() + " \n ";
+                "Age: " + this.getAge();
 
     }
 
@@ -86,14 +86,16 @@ class Manager extends Employee {
         return super.toString() + " \n " +
                 "Employee has a " + this.getVehicle().vehicleType +"\n"+ this.getVehicle() + " \n " +
                 this.getName() + " has an Occupation rate: " + this.getOccupationRate()+ " %" + " HE/SHE travelled "+ this.getTravelledDays() +" and " +"has brought " + this.getClientsBrought() + " new clients." + "\n" + "His/her estimated annual income is :"
-                + annualIncome() + "\n" + "------------------" + "\n" + "-----------------------";
+                + annualIncome() + "\n" + "-----------------------" + "\n" + "-----------------------";
 
     }
 
     @Override
     public double annualIncome() {
         // Add bonus for manager
-        double bonus = clientsBrought * 500 + travelledDays * 100;
+        final int GAIN_FACTOR_CLIENT = 500;
+        final int GAIN_FACTOR_TRAVEL = 100;
+        double bonus = clientsBrought * GAIN_FACTOR_CLIENT + travelledDays * GAIN_FACTOR_TRAVEL;
         return super.annualIncome() + bonus;
     }
 }
@@ -115,14 +117,15 @@ class Tester extends Employee {
         return super.toString() + " \n " +
                 "Employee has a " + this.getVehicle().vehicleType +"\n"+ this.getVehicle() + " \n " +
                 this.getName() + " has an Occupation rate: " + this.getOccupationRate()+ " %" +" and corrected " + this.getBugsSolved() + " \n " + "His/her estimated annual income is :"
-                + annualIncome() + "\n" + "------------------" + "\n" + "-----------------------";
+                + annualIncome() + "\n" + "-----------------------" + "\n" + "-----------------------";
 
     }
 
     @Override
     public double annualIncome() {
         // Add bonus for tester
-        double bonus = bugsSolved * 10;
+        final int GAIN_FACTOR_ERROR = 10;
+        double bonus = bugsSolved * GAIN_FACTOR_ERROR;
         return super.annualIncome() + bonus;
     }
 }
@@ -144,13 +147,14 @@ class Programmer extends Employee {
         return super.toString() + " \n " +
                 "Employee has a " + this.getVehicle().vehicleType +"\n"+ this.getVehicle() + " \n " +
                 this.getName() + " has an Occupation rate: " + this.getOccupationRate()+ " %" +" and completed project " + this.getProjectsCompleted() + " \n " + "His/her estimated annual income is :"
-                + annualIncome() + "\n" + "------------------" + "\n" + "-----------------------";
+                + annualIncome() + "\n" + "-----------------------" + "\n" + "-----------------------";
     }
 
     @Override
     public double annualIncome() {
         // Add bonus for programmer
-        double bonus = projectsCompleted * 200;
+        final int GAIN_FACTOR_PROJECTS = 200;
+        double bonus = projectsCompleted * GAIN_FACTOR_PROJECTS;
         return super.annualIncome() + bonus;
     }
 }

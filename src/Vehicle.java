@@ -75,7 +75,7 @@ class Motorcycle extends Vehicle {
     }
 
     public String toString(){
-        return "-make: " + super.getMake() + " \n " +
+        return "  -make: " + super.getMake() + " \n " +
                 " -Plate: " + super.getPlate() + " \n " +
                 " -Color: " + super.getColor() + " \n " +
                 " -Category: " + super.getCategory() + "\n " +
