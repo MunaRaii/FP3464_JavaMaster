@@ -52,12 +52,12 @@ class Car extends Vehicle {
     }
 
     public String toString(){
-        return "-make: " + super.getMake() + " \n " +
-                " -Plate: " + super.getPlate() + " \n " +
-                " -Color: " + super.getColor() + " \n " +
-                " -Category: " + super.getCategory() + "\n " +
-                " -Gear: " + this.getGear()  + " \n "+
-                " -Type: " + this.getType();
+        return "  - make: " + super.getMake() + " \n " +
+                " - Plate: " + super.getPlate() + " \n " +
+                " - Color: " + super.getColor() + " \n " +
+                " - Category: " + super.getCategory() + "\n " +
+                " - Gear: " + this.getGear()  + " \n "+
+                " - Type: " + this.getType();
 
     }
 }
@@ -75,11 +75,11 @@ class Motorcycle extends Vehicle {
     }
 
     public String toString(){
-        return "  -make: " + super.getMake() + " \n " +
-                " -Plate: " + super.getPlate() + " \n " +
-                " -Color: " + super.getColor() + " \n " +
-                " -Category: " + super.getCategory() + "\n " +
-                " -Side Car: " + this.hasSidecar;
+        return "  - make: " + super.getMake() + " \n " +
+                " - Plate: " + super.getPlate() + " \n " +
+                " - Color: " + super.getColor() + " \n " +
+                " - Category: " + super.getCategory() + "\n " +
+                " - Side Car: " + this.hasSidecar;
 
     }
 }

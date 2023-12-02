@@ -85,7 +85,7 @@ class Manager extends Employee {
     public String toString() {
         return super.toString() + " \n " +
                 "Employee has a " + this.getVehicle().vehicleType +"\n"+ this.getVehicle() + " \n " +
-                this.getName() + " has an Occupation rate: " + this.getOccupationRate()+ " %" + " HE/SHE travelled "+ this.getTravelledDays() +" and " +"has brought " + this.getClientsBrought() + " new clients." + "\n" + "His/her estimated annual income is :"
+                this.getName() + " has an Occupation rate: " + this.getOccupationRate()+ "%" + " He/She travelled "+ this.getTravelledDays() +" and " +"has brought " + this.getClientsBrought() + " new clients." + "\n" + "His/her estimated annual income is :"
                 + annualIncome() + "\n" + "-----------------------" + "\n" + "-----------------------";
 
     }
@@ -116,7 +116,7 @@ class Tester extends Employee {
     public String toString() {
         return super.toString() + " \n " +
                 "Employee has a " + this.getVehicle().vehicleType +"\n"+ this.getVehicle() + " \n " +
-                this.getName() + " has an Occupation rate: " + this.getOccupationRate()+ " %" +" and corrected " + this.getBugsSolved() + " \n " + "His/her estimated annual income is :"
+                this.getName() + " has an Occupation rate: " + this.getOccupationRate()+ " %" +" and corrected " + this.getBugsSolved() + " bugs\n " + "His/her estimated annual income is :"
                 + annualIncome() + "\n" + "-----------------------" + "\n" + "-----------------------";
 
     }
