@@ -6,16 +6,16 @@ class Employee {
     private final int birthYear;
     private final double monthlyIncome;
     private int occupationRate;
+    private final Vehicle vehicle;
 
     // Constructor for initializing Employee
-    public Employee(String name, int birthYear, double monthlyIncome, int occupationRate) {
+    public Employee(String name, int birthYear, double monthlyIncome, int occupationRate, Vehicle vehicle) {
         this.name = name;
         this.birthYear = birthYear;
         this.monthlyIncome = monthlyIncome;
         this.occupationRate = occupationRate;
+        this.vehicle = vehicle;
         System.out.println("We have a new employee: " + this.name);
-
-
     }
 
 
@@ -51,11 +51,12 @@ class Employee {
         return this.monthlyIncome;
     }
 
-
-
-
     public int getOccupationRate() {
         return this.occupationRate;
+    }
+
+    public Vehicle getVehicle(){
+        return this.vehicle;
     }
 
     public String toString() {
@@ -63,6 +64,10 @@ class Employee {
                 "Age: " + this.getAge() + " || " +
                 "MonthlyIncome: " + this.getMonthlyIncome() + " || " +
                 "Occupation Rate: " + this.getOccupationRate();
+    }
+
+    public double annualIncome(){
+        return (12 * this.monthlyIncome * this.occupationRate);
     }
 
 }
@@ -84,7 +89,6 @@ class Manager extends Employee {
         return this.travelledDays;
     }
 
-
     public int getClientsBrought() {
         return this.clientsBrought;
     }
@@ -94,9 +98,17 @@ class Manager extends Employee {
         return super.toString() + " || " +
                 "Travelled Days: " + this.getTravelledDays() + " || " +
                 "Clients Brought: " + this.getClientsBrought();
+                "Vehicle: " + this.getVehicle();
     }
 
-
+    // Bonus calculation for manager
+    @Override
+    public double annual Income(){
+        private final GAIN_FACTOR_CLIENT = 500;
+        private final GAIN_FACTOR_TRAVEL = 100;
+        double bonus = clientsBrought * GAIN_FACTOR_CLIENT + travelledDays * GAIN_FACTOR_TRAVEL;
+        return super.annualIncome() + bonus;
+    }
 
 }
 
